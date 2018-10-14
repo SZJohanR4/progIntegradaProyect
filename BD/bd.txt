@@ -1,0 +1,49 @@
+create database progIntegradaDB;
+use progIntegradaDB;
+
+CREATE SCHEMA IF NOT EXISTS `progIntegradaDB` DEFAULT CHARACTER SET utf8 
+
+CREATE TABLE IF NOT EXISTS `progIntegradaDB`.`Auto` (
+  `idAuto` INT NOT NULL AUTO_INCREMENT,
+  `Marca` VARCHAR(45) NULL,
+  `Modelo` VARCHAR(45) NULL,
+  `Matricula` VARCHAR(45) NULL,
+  `NroPuesto` VARCHAR(45) NULL,
+  PRIMARY KEY (`idAuto`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `progIntegradaDB`.`Usuario` (
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Cedula` VARCHAR(45) NULL,
+  `Edad` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idUsuario`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `progIntegradaDB`.`Viajes` (
+  `idViajes` INT NOT NULL AUTO_INCREMENT,
+  `NroAsientosViaje` VARCHAR(45) NULL,
+  `Fecha` DATE NULL,
+  `Hora` VARCHAR(45) NULL,
+  `Tiempo` INT NULL,
+  `Origen` VARCHAR(45) NULL,
+  `Destino` VARCHAR(45) NULL,
+  `Precio` VARCHAR(45) NULL,
+  `Usuario_idUsuario` INT NOT NULL,
+  `Auto_idAuto` INT NOT NULL,
+  PRIMARY KEY (`idViajes`, `Usuario_idUsuario`, `Auto_idAuto`),
+  INDEX `fk_Viajes_Usuario1_idx` (`Usuario_idUsuario` ASC),
+  INDEX `fk_Viajes_Auto1_idx` (`Auto_idAuto` ASC),
+  CONSTRAINT `fk_Viajes_Usuario1`
+    FOREIGN KEY (`Usuario_idUsuario`)
+    REFERENCES `progIntegradaDB`.`Usuario` (`idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Viajes_Auto1`
+    FOREIGN KEY (`Auto_idAuto`)
+    REFERENCES `progIntegradaDB`.`Auto` (`idAuto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB

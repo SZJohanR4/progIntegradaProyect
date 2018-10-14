@@ -1,0 +1,14 @@
+com\helloworld\apispring\controller\settings\CORSFilter.class
+com\helloworld\apispring\controller\AutoServicio.class
+com\helloworld\apispring\controller\ViajesServicio.class
+com\helloworld\apispring\controller\Controller.class
+com\helloworld\apispring\controller\settings\RestInitializer.class
+com\helloworld\apispring\controller\settings\InitConfiguration.class
+com\helloworld\apispring\model\entity\Usuario.class
+com\helloworld\apispring\model\entity\Viajes.class
+com\helloworld\apispring\model\dao\AutoRepositorio.class
+com\helloworld\apispring\controller\settings\HibernateConfiguration.class
+com\helloworld\apispring\model\dao\ViajesRepositorio.class
+com\helloworld\apispring\model\dao\UsuarioRepositorio.class
+com\helloworld\apispring\controller\UsuarioServicio.class
+com\helloworld\apispring\model\entity\Auto.class
