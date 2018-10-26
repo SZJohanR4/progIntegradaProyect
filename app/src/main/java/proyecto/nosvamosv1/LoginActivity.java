@@ -9,11 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import proyecto.nosvamosv1.Models.Usuario;
-import proyecto.nosvamosv1.Models.UsuarioRespuesta;
 import proyecto.nosvamosv1.userApi.userServices;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 retrofit =new Retrofit.Builder()
-                        .baseUrl("http://192.168.0.6:8080/APIspring/v1/")
+                        .baseUrl("http://192.168.0.3:8080/APIspring/v1/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 userServices auth=retrofit.create(userServices.class);
