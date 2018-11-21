@@ -29,27 +29,27 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer idUsuario;
+    public Integer idUsuario;
 
  
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List <Viajes>viajes;
+    public List <Viajes>viajes;
     
     @Column
-    private String Nombre;
+    public String Nombre;
 
     @Column
-    private String Cedula;
+    public String Cedula;
 
     @Column
-    private String Edad;
+    public String Edad;
 
     @Column
-    private String Email;
+    public String Email;
 
     @Column
-    private String Password;
+    public String Password;
 
     public Usuario() {
     }

@@ -6,7 +6,6 @@
 package com.helloworld.apispring.controller;
 
 import com.helloworld.apispring.model.dao.UsuarioRepositorio;
-import com.helloworld.apispring.model.entity.Auto;
 import com.helloworld.apispring.model.entity.Usuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

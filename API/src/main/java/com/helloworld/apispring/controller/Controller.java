@@ -91,4 +91,5 @@ public class Controller {
         List<Viajes> viaje =  viajesservicio.Criterios_viajes_user_auto(iduser,idauto,idviaje);
         return new ResponseEntity<List<Viajes>>(viaje, HttpStatus.OK);
     }
+    
 }
