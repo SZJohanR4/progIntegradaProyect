@@ -14,6 +14,22 @@
     <br>
     <br>
     <br>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Nos Vamos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="Login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <div class="container">
     <form class="form-horizontal" role="form">
         <div class="row">
@@ -132,7 +148,6 @@
 
 <script type="text/javascript">
   $( "#registroBtn" ).click(function() {
-    alert(document.getElementById("nombreInp").value)
     var ApiUrl="http://localhost:8080/APIspring/v1/usuarioNew/";
     $.ajax({
         type: "POST",
@@ -144,11 +159,10 @@
         success: function (r) {
           alert(r);
         },
-        error: function (result) {
-          alert(result+" no sirvo")
-        }
-
-
+        error: function(xhr, status, error) {
+                  alert(xhr.responseText);
+                  window.location.href = "login.html";
+                }
     });
   });
 </script>
