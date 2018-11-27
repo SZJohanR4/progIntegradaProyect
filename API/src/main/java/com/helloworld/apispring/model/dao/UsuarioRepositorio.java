@@ -10,6 +10,7 @@ import com.helloworld.apispring.model.entity.Usuario;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,13 @@ public class UsuarioRepositorio {
     public long crearUsuario(Usuario userNew) {
       getSessionFactory().getCurrentSession().save(userNew);
               return userNew.getIdUsuario();
+    }
+    
+    public  List<Usuario> loginUsuario(Usuario userNew) {
+      Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Usuario.class);
+      criteria.add(Restrictions.eq("Nombre", userNew.getNombre()));
+      criteria.add(Restrictions.eq("Password", userNew.getPassword()));
+      return criteria.list();
     }
     
 }

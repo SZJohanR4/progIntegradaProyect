@@ -7,6 +7,7 @@ package com.helloworld.apispring.controller;
 
 
 import com.helloworld.apispring.model.dao.ViajesRepositorio;
+import com.helloworld.apispring.model.entity.Usuario;
 import java.util.Date;
 import com.helloworld.apispring.model.entity.Viajes;
 import java.util.List;
@@ -31,7 +32,11 @@ public class ViajesServicio {
      public List<Viajes> viajeListFilters(){
         return viajesRepositorio.viajeListFilters();
     }
-    
+     
+    public String crearViaje(Viajes viajeNew) {
+    long equipoId= viajesRepositorio.crearViaje(viajeNew);
+    return "Viaje Nro:"+equipoId;
+    }
     
      public List<Viajes> getviajeHistory(String idUsuario){
         return viajesRepositorio.getAllViajes();

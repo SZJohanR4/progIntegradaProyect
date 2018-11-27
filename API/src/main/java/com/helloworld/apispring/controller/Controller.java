@@ -62,6 +62,18 @@ public class Controller {
         return new ResponseEntity<String>(resultado, HttpStatus.OK);
     }
     
+    @RequestMapping(value = "/viajeNew/", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> crearViaje(@RequestBody Viajes viajeNew) {
+        String resultado = viajesservicio.crearViaje(viajeNew);
+        return new ResponseEntity<String>(resultado, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/login/", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> loginUsuario(@RequestBody Usuario userNew) {
+        String resultado = usuarioServicio.loginUsuario(userNew);
+        return new ResponseEntity<String>(resultado, HttpStatus.OK);
+    }
+    
     @RequestMapping(value = "/viajeHistory/", method = RequestMethod.GET)
     public ResponseEntity<List<Viajes>> viajeHistory(@RequestParam ("Usuario_idUsuario") String idUsuario) {
         List<Viajes> viajes = viajesservicio.getviajeHistory(idUsuario);
@@ -72,12 +84,6 @@ public class Controller {
     public ResponseEntity<List<Viajes>> viajeListFilters() {
         List<Viajes> viajes = viajesservicio.viajeListFilters();
         return new ResponseEntity<List<Viajes>>(viajes, HttpStatus.OK);
-    }
-    
-     @RequestMapping(value = "/CrearViaje/", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> crearViaje(@RequestBody Viajes viaje) {
-        String resultado = viajesservicio.crear(viaje);
-        return new ResponseEntity<String>(resultado, HttpStatus.OK);
     }
    
     @RequestMapping(value = "/ViajeFechaOrigenDestino", method = RequestMethod.GET)

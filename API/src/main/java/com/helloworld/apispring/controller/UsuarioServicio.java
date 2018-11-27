@@ -32,4 +32,14 @@ public class UsuarioServicio {
     long equipoId= usuarioRepositorio.crearUsuario(userNew);
     return "Usuario creado con ID:"+equipoId;
     }
+    
+    public String loginUsuario(Usuario userNew) {
+    String result="";
+    if(usuarioRepositorio.loginUsuario(userNew).size()>0){
+        result="true";
+    }else{
+        result="false";
+    }
+    return result;
+    }
 }
